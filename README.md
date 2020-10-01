@@ -14,3 +14,4 @@ You can add new commands easily with commands.py.
 
 ## Screenshots  
 ![alt text](1.png)
+![alt text](2.png)
