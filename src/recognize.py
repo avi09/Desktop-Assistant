@@ -6,7 +6,7 @@ def hear():
 		s = ""
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
-	    		print("Waiting for invoke message - Ben")
+	    		print("Waiting for invoke message - Rachel")
 	    		audio = r.listen(source)
 
 		try:
@@ -17,7 +17,7 @@ def hear():
 			print("Could not request results from Google Speech Recognition service; {0}".format(e))
 		s = s.lower()
 		print("Heard - "+s)
-		if s.find("ben")!=-1:
+		if s.find("rachel")!=-1:
 			return
 
 def getcommand():
