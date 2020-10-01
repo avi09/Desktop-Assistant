@@ -11,3 +11,6 @@ Call Ben and make it do tasks.
 Currently implemented to do basic tasks - dictionary, application launch, stock values, shell commands etc.  
 All the commands are configurable and can be edited in features with just the modification of text files.  
 You can add new commands easily with commands.py.
+
+## Screenshots  
+[!image info][./Screenshot from 2020-1-01 13-55-26.png]
