@@ -1,0 +1,7 @@
+SpeechRecognition
+pyaudio
+tkinter
+pandas
+yfinance
+json
+threading
