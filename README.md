@@ -1,5 +1,5 @@
 # Desktop-Assistant
-Hi, here is the code for the Desktop Assistant(Ben) I created as a personal project. Hope you like it!
+Hi, here is the code for the Desktop Assistant(Rachel) I created as a personal project. Hope you like it!
 
 ## Setup and Run  
 Navigate to ./src  
@@ -13,4 +13,4 @@ All the commands are configurable and can be edited in features with just the mo
 You can add new commands easily with commands.py.
 
 ## Screenshots  
-![alt text] [1.png]
+![alt text](1.png)
