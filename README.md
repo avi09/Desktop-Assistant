@@ -13,4 +13,4 @@ All the commands are configurable and can be edited in features with just the mo
 You can add new commands easily with commands.py.
 
 ## Screenshots  
-![alt text] [Screenshot from 2020-10-01 13-55-26.png]
+![alt text] [1.png]
