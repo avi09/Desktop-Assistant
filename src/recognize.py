@@ -1,4 +1,7 @@
 import speech_recognition as sr
+from gtts import gTTS
+
+import os
 
 # obtain audio from the microphone
 def hear():
@@ -17,7 +20,7 @@ def hear():
 			print("Could not request results from Google Speech Recognition service; {0}".format(e))
 		s = s.lower()
 		print("Heard - "+s)
-		if s.find("rachel")!=-1:
+		if s.find("rachel")!=-1 or s.find('richa')!=-1:
 			return
 
 def getcommand():
@@ -39,3 +42,11 @@ def getcommand():
 		print('You Said - '+s)
 		print('------')
 		return s
+		
+def say(s):
+	
+	x = 'en'
+	myobj = gTTS(text=s, lang=x, slow=False) 
+	myobj.save("audio.mp3") 
+	os.system("play audio.mp3") 
+	return

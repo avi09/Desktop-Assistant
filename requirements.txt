@@ -5,3 +5,4 @@ pandas
 yfinance
 json
 threading
+gtts

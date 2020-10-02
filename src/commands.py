@@ -4,6 +4,8 @@ import random
 import json
 import yfinance as yf
 import pandas as pd
+from recognize import say
+from tkinter import *
 def open1(s):
 	flag = -1
 	i = len(s) - 1
@@ -21,7 +23,7 @@ def open1(s):
 		if i.split('--__')[0] == s:
 			os.system(i.split('--__')[1])
 
-def meaning(s):
+def meaning(s, x1):
 	flag = -1
 	i = len(s) - 1
 	while i>-1 and flag==-1:
@@ -35,10 +37,13 @@ def meaning(s):
 	print('------')
 	print(f[s][0])
 	print('------')
+	x1.set(f[s][0])
+	say(f[s][0])
+	
 def string_adjustment(s):
 	return s.lower()
 
-def stock(s):
+def stock(s, x1):
 	flag = -1
 	i = len(s) - 1
 	while i>-1 and flag==-1:
@@ -53,10 +58,13 @@ def stock(s):
 	tick = yf.Ticker(s)
 	df = tick.history(period = str(1) + 'd')
 	print('------')
-	print('Most Recent that I have - \n' + str(df.loc[:,'Close'][0]))
+	x = 'Most Recent that I have is \n' + str(df.loc[:,'Close'][0])
+	print(x)
+	x1.set(x)
+	say(x)
 	print('------')
-	return
-def command(s):
+	return x
+def command(s, x1):
 	s = string_adjustment(s)
 	if s.find('command')!=-1:
 		os.system('python3')
@@ -66,11 +74,8 @@ def command(s):
 		return x[1]
 	
 	elif s.find('meaning')!=-1:
-		meaning(s)
-		f = open('1.txt','r')
-		x = f.readlines()
-		random.shuffle(x)
-		return x[1]
+		return meaning(s, x1)
+		
 		
 	elif s.find('open')!=-1 or s.find('launch')!=-1:
 		open1(s)
@@ -86,11 +91,8 @@ def command(s):
 		random.shuffle(x)
 		return x[1]
 	elif s.find('stock')!=-1 or s.find('share')!=-1:
-		stock(s)
-		f = open('1.txt','r')
-		x = f.readlines()
-		random.shuffle(x)
-		return x[1]
+		return stock(s, x1)
+		
 	else:
 		f = open('2.txt','r')
 		x=f.readlines()

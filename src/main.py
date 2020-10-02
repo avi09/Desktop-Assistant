@@ -4,7 +4,7 @@ import os
 import time
 import threading
 import commands
-from recognize import hear, getcommand
+from recognize import hear, getcommand, say
 '''Thread Control Variable'''
 thread_control = -1
 
@@ -32,6 +32,7 @@ def set_size_and_location(window, w, h, x, y):
 	window.geometry('%dx%d+%d+%d' % (w,h,x,y))
 
 window = Tk()
+window.title("Rachel - Voice Assistant")
 entry_text=StringVar()
 
 def hide_and_show_window():
@@ -47,26 +48,32 @@ def hide_and_show_window():
 		
 '''Function to Take Input From Text Field And Give In for processing'''
 def submit():
-	global entry_text,thread_control
+	global entry_text,thread_control, head, heading
 	thread_control=-1
 	'''Getting Query'''
 	x = entry_text.get()	
 	x = x.lower()
-	x1 = commands.command(x)
+	heading.place(relx = 0.20)
+	head.set("Processing")
+	x1 = commands.command(x, head)
+	head.set("Rachel")
+	heading.place(relx = 0.45, rely = 0.2)
 	hide_and_show_window()
 		
 ''' Initialization Of GUI,setting size and location'''
-set_size_and_location(window,0.15,0.15,0.8,0.1)
+set_size_and_location(window,0.25,0.25,0.8,0.1)
 
 '''Set Background Color'''
 window.configure(background='#171c26')
 
 '''Adding Heading of Assistant'''
-heading = Label( window, text = "Rachel", anchor="center", bg='#171c26', fg='white')
-heading.place(relx=0.37,rely=0.2)
+head = StringVar()
+head.set("Rachel")
+heading = Label( window, textvariable = head, anchor="center", bg='#171c26', fg='white')
+heading.place(relx=0.45,rely=0.2)
 
 '''Adding Text Field To Take Commands'''
-entry = Entry(window,bd=1,width=int(window.winfo_screenwidth()*0.015), bg='#171c26', textvariable=entry_text)
+entry = Entry(window,bd=1,width=int(window.winfo_screenwidth()*0.025), bg='#171c26', textvariable=entry_text)
 entry.place(relx=0.1,rely=0.6)
 hide_and_show_window()
 
