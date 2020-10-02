@@ -6,3 +6,4 @@ yfinance
 json
 threading
 gtts
+x
