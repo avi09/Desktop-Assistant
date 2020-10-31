@@ -19,9 +19,16 @@ def auto_control():
 			submit()
 		else:
 			time.sleep(0.4)
-	
+
 '''Thread 1'''
 thread1 = threading.Thread(target=auto_control)
+
+
+window = Tk()
+window.wait_visibility(window)
+window.title("Rachel - Voice Assistant")
+window.wm_attributes('-alpha',0.8)
+entry_text=StringVar()
 
 thread1.start()
 def set_size_and_location(window, w, h, x, y):
@@ -31,27 +38,23 @@ def set_size_and_location(window, w, h, x, y):
 	y = int(y * window.winfo_screenheight())
 	window.geometry('%dx%d+%d+%d' % (w,h,x,y))
 
-window = Tk()
-window.title("Rachel - Voice Assistant")
-entry_text=StringVar()
-
 def hide_and_show_window():
 	global window,thread_control,entry
 	window.withdraw()
 	'''Making The Window Reappear'''
-	hear()
+	#hear()
 	thread_control=1
 	window.update()
 	window.deiconify()
 	entry.focus_set()
-		
-		
+
+
 '''Function to Take Input From Text Field And Give In for processing'''
 def submit():
 	global entry_text,thread_control, head, heading
 	thread_control=-1
 	'''Getting Query'''
-	x = entry_text.get()	
+	x = entry_text.get()
 	x = x.lower()
 	heading.place(relx = 0.20)
 	head.set("Processing")
@@ -59,17 +62,17 @@ def submit():
 	head.set("Rachel")
 	heading.place(relx = 0.45, rely = 0.2)
 	hide_and_show_window()
-		
+
 ''' Initialization Of GUI,setting size and location'''
 set_size_and_location(window,0.25,0.25,0.8,0.1)
 
 '''Set Background Color'''
-window.configure(background='#171c26')
+window.configure(background='black')
 
 '''Adding Heading of Assistant'''
 head = StringVar()
 head.set("Rachel")
-heading = Label( window, textvariable = head, anchor="center", bg='#171c26', fg='white')
+heading = Label( window, textvariable = head, anchor="center", bg='black', fg='white')
 heading.place(relx=0.45,rely=0.2)
 
 '''Adding Text Field To Take Commands'''
@@ -78,5 +81,3 @@ entry.place(relx=0.1,rely=0.6)
 hide_and_show_window()
 
 window.mainloop()
-
-

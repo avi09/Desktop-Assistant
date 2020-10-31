@@ -39,7 +39,7 @@ def meaning(s, x1):
 	print('------')
 	x1.set(f[s][0])
 	say(f[s][0])
-	
+
 def string_adjustment(s):
 	return s.lower()
 
@@ -53,7 +53,7 @@ def stock(s, x1):
 		else:
 			s1 = ''
 		i = i - 1
-	d = {'apple':'AAPL', 'google':'GOOG', 'microsoft':'MSFT', 'amazon':'AMZN'}
+	d = {'apple':'AAPL', 'google':'GOOG', 'microsoft':'MSFT', 'amazon':'AMZN', 'Netflix':'NLFX'}
 	s = d[s]
 	tick = yf.Ticker(s)
 	df = tick.history(period = str(1) + 'd')
@@ -72,18 +72,18 @@ def command(s, x1):
 		x=f.readlines()
 		random.shuffle(x)
 		return x[1]
-	
+
 	elif s.find('meaning')!=-1:
 		return meaning(s, x1)
-		
-		
+
+
 	elif s.find('open')!=-1 or s.find('launch')!=-1:
 		open1(s)
 		f = open('1.txt','r')
 		x=f.readlines()
 		random.shuffle(x)
 		return x[1]
-		
+
 	elif s.find('run')!=-1:
 		open1(s)
 		f = open('1.txt','r')
@@ -92,7 +92,7 @@ def command(s, x1):
 		return x[1]
 	elif s.find('stock')!=-1 or s.find('share')!=-1:
 		return stock(s, x1)
-		
+
 	else:
 		f = open('2.txt','r')
 		x=f.readlines()
